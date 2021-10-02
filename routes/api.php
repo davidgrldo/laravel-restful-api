@@ -14,6 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/products', function () {
+    return response()->json([
+        "message" => "GET method success"
+    ]);
+});
+
+Route::post('products', function () {
+    return response()->json([
+        "message" => "POST method success"
+    ]);
+});
+
+Route::put('products/{id}', function ($id) {
+    return response()->json([
+        "message" => "PUT method success " . $id
+    ]);
+});
+
+Route::delete('products/{id}', function ($id) {
+    return response()->json([
+        "message" => "DELETE method success " . $id
+    ]);
 });
