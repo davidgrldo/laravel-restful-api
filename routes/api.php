@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,26 +19,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/products', function () {
-    return response()->json([
-        "message" => "GET method success"
-    ]);
-});
-
-Route::post('products', function () {
-    return response()->json([
-        "message" => "POST method success"
-    ]);
-});
-
-Route::put('products/{id}', function ($id) {
-    return response()->json([
-        "message" => "PUT method success " . $id
-    ]);
-});
-
-Route::delete('products/{id}', function ($id) {
-    return response()->json([
-        "message" => "DELETE method success " . $id
-    ]);
-});
+Route::resource('products', ProductController::class);
